@@ -9,7 +9,7 @@
 PI = 3.141592653589793
 
 
-def my_input(message: str) -> str:
+def my_input(message: str) -> int:
     value = input(message)
     if not value.isdigit():
         raise ValueError('Enter an integer or a number with a dot')
@@ -21,10 +21,10 @@ def my_input(message: str) -> str:
 
 
 def cone_volume() -> float:
-    radius = my_input("Введите радиус конуса:")
-    height = my_input("Введите высоту конуса:")
+    radius = int(my_input("Введите радиус конуса:"))
+    height = int(my_input("Введите высоту конуса:"))
     
-    volume = (PI * radius**2 * height) / 3
+    volume = (PI * radius ** 2 * height) / 3
     
     return volume
 

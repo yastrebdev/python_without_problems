@@ -7,7 +7,7 @@
 # Возраст самого старшего ребенка - int
 
 
-def my_input(message: str) -> str:
+def my_input(message: str) -> int:
     value = input(message)
     if not value.isdigit():
         raise ValueError('Enter an integer or a number with a dot')
@@ -21,7 +21,7 @@ def calculate_the_age_of_the_eldest_child():
     y = my_input('Возраст младшего ребенка')
     x = my_input('Возраст среднего ребенка')
     
-    age_of_the_eldest_child = 2*x - y
+    age_of_the_eldest_child = 2 * x - y
     return age_of_the_eldest_child
 
 age = calculate_the_age_of_the_eldest_child()
