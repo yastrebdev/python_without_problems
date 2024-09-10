@@ -1,3 +1,6 @@
+# DMOJ problem - coci08c1p2
+# https://dmoj.ca/problem/coci08c1p2
+
 def solve_ptice(n, correct_answers):
     adrian_pattern = "ABC"
     bruno_pattern = "BABC"
