@@ -19,21 +19,17 @@ def get_data_match():
     events.sort()
 
     score = {'A': 0, 'B': 0}
-    leading_team = ''
+    leading_team = None
 
     for _, team in events:
-        if team == 'A':
-            score['A'] += 1
-            if score['A'] > score['B']:
-                if leading_team != 'A' and leading_team != '':
+        score[team] += 1
+
+        other_team = 'B' if team == 'A' else 'A'
+        if score[team] > score[other_team]:
+            if leading_team != team:
+                if leading_team:
                     turnarounds_count += 1
-                leading_team = 'A'
-        else:
-            score['B'] += 1
-            if score['B'] > score['A']:
-                if leading_team != 'B' and leading_team != '':
-                    turnarounds_count += 1
-                leading_team = 'B'
+                leading_team = team
 
     print(first_half_points)
     print(turnarounds_count)
