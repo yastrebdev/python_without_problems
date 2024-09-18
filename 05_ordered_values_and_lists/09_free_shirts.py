@@ -1,6 +1,5 @@
 # DMOJ problem - ecoo19r1p1
 # https://dmoj.ca/problem/ecoo19r1p1
-# TODO Обработать несколько мероприятий в 1 день
 
 def washing_shirts():
     # data = input().split()
@@ -21,9 +20,10 @@ def washing_shirts():
             washed_shirts = shirts
             washed += 1
 
-        if day in event_days:
-            shirts += 1
-            washed_shirts += 1
+        count_days = event_days.count(day)
+        if count_days > 0:
+            shirts += count_days
+            washed_shirts += count_days
 
         washed_shirts -= 1
 
