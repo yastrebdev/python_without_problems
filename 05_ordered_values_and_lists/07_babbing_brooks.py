@@ -32,8 +32,9 @@ def calculate_streams():
         else:
             break
 
-    str_streams = [str(stream) for stream in streams]
-    print(' '.join(str_streams))
+    # str_streams = [str(stream) for stream in streams]
+    # str_streams = map(str, streams)
+    print(' '.join(map(str, streams)))
 
 
 calculate_streams()
