@@ -1,22 +1,29 @@
 # DMOJ problem - dmopc14c7p2
 # https://dmoj.ca/problem/ecoo19r1p1
-from dulwich.porcelain import reset
 
-actions = int(input())
-values = list(map(int, input().split()))
 
-min_value_index = values.index(min(values))
-max_value_index = values.index((max(values)))
+def get_difference():
+    # actions = int(input())
+    values = list(map(int, input().split()))
 
-sequence = values[min_value_index:max_value_index + 1]
+    min_value_index = values.index(min(values))
+    max_value_index = values.index((max(values)))
 
-result = sequence[-1] - sequence[0]
+    sequence = values[min_value_index:max_value_index + 1]
 
-for i in range(len(sequence)):
-    if i == 0: continue
-
-    if sequence[i] < sequence[i - 1]:
+    if len(sequence) == 0:
         result = 'unknown'
-        break
+    else:
+        result = sequence[-1] - sequence[0]
 
-print(result)
+    for i in range(len(sequence)):
+        if i == 0: continue
+
+        if sequence[i] < sequence[i - 1]:
+            result = 'unknown'
+            break
+
+    print(result)
+
+
+get_difference()
