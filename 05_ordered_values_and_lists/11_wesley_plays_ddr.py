@@ -26,10 +26,12 @@ else:
     move = 0
     while move < len_sequence:
         for combo, points in combos:
-            if move + len(combo) <= len_sequence and sequence[move:len(combo) + move] == combo:
+            if (move + len(combo) <= len_sequence and
+                    sequence[move:len(combo) + move] == combo):
                 score += int(points)
                 move += len(combo)
-
-        move += 1
+                break
+        else:
+            move += 1
 
 print(score)
