@@ -1,4 +1,4 @@
-# DMOJ problem - coci20c2p1
+# DMOJ problem - dmopc20c2p1
 # https://dmoj.ca/problem/dmopc20c2p1
 
 chars_count = int(input())
@@ -37,3 +37,4 @@ for row in grid:
         continue
 
     print(''.join(row))
+
