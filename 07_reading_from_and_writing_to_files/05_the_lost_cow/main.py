@@ -1,3 +1,5 @@
+# https://usaco.org/index.php?page=viewproblem2&cpid=735
+
 def search_cow(x, y):
     distance = 0
     step_size = 1
