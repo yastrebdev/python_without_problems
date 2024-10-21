@@ -19,17 +19,21 @@ def write_input_data():
 
 evening, all_residents = write_input_data()
 
-data_by_songs = set()
+all_songs = 0
 for e in evening:
     if 1 in e:
-        data_by_songs.update(e)
+        all_songs += 1
+        for r in e:
+            all_residents[r] += 1
     else:
         for r in e:
-            if r in data_by_songs and r in e:
-                data_by_songs.update(e)
+            if all_residents[r] == all_songs:
+                for res in e:
+                    if all_residents[res] == all_songs:
+                        continue
+                    else:
+                        all_residents[res] += 1
 
-list_songs = list(data_by_songs)
-list_songs.sort()
-
-for song in list_songs:
-    print(song)
+for key, value in all_residents.items():
+    if value == all_songs:
+        print(int(key))
