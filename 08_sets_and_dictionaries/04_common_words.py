@@ -16,7 +16,6 @@ def invert_dictionary(d):
     return inverted
 
 
-
 def with_suffix(num):
     s = str(num)
 
