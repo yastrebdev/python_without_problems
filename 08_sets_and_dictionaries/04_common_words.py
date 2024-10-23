@@ -70,7 +70,7 @@ for dataset in range(n):
         if not word in word_to_num:
             word_to_num[word] = 1
         else:
-            word_to_num[word] = word_to_num[word] + 1
+            word_to_num[word] += 1
 
     num_to_words = invert_dictionary(word_to_num)
     ordinal = with_suffix(k)
