@@ -1,5 +1,7 @@
 # https://usaco.org/index.php?page=viewproblem2&cpid=359
 
+from bisect import bisect_left, bisect_right
+
 input_file = open('baseball.in', 'r')
 output_file = open('baseball.out', 'w')
 
@@ -10,18 +12,21 @@ positions = []
 for i in range(n):
     positions.append(int(input_file.readline()))
 
+positions.sort()
+
 total = 0
 
-for position1 in positions:
-    for position2 in positions:
-        first_two_diff = position2 - position1
-        if first_two_diff > 0:
-            low = position2 + first_two_diff
-            high = position2 + first_two_diff * 2
-            for position3 in positions:
-                if low <= position3 <= high:
-                    total += 1
+for i in range(n):
+    for j in range(i + 1, n):
+        first_two_diff = positions[j] - positions[i]
+        low = positions[j] + first_two_diff
+        high = positions[j] + first_two_diff * 2
 
+        left = bisect_left(positions, low)
+
+        right = bisect_right(positions, high)
+
+        total += right - left
 output_file.write(str(total) + '\n')
 
 input_file.close()
